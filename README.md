@@ -13,3 +13,4 @@ Make sure to set Visual Studio to your external editor tool in _Edit > Preferenc
 ## Additional resources
 
 * [Configure Git with Unity](https://thoughtbot.com/blog/how-to-git-with-unity)
+* [Unity docs](https://docs.unity3d.com/Manual/index.html)
