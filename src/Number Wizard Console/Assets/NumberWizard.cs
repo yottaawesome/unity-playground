@@ -33,7 +33,7 @@ public class NumberWizard : MonoBehaviour
     {
         Debug.Log("Welcome to Number Wizard!");
         Debug.Log($"Pick a number between {MinNumber} and {MaxNumber}, and I'll try to guess your number!");
-        Debug.Log("With each of my guesses, you'll have to tell me whether your number is higher or lower, and I'll update my guess!");
+        Debug.Log("With each of my guesses, you'll have to tell me whether your number is higher or lower than my guess, and I'll update my guess!");
         Debug.Log("Controls: up = higher, down = lower, enter = correct");
         Debug.Log("Ok, let's play! Pick a number and I'll try to guess it...");
         State = GameState.Running;
