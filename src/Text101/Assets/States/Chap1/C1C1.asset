@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b5784a7e71c77c4e9fbc030fe213825, type: 3}
+  m_Name: C1C1
+  m_EditorClassIdentifier: 
+  StoryText: 'Hello, this is the Starting State! This is a text-based story.
+
+
+    You
+    wake up and find yourself in a room with two doors.
+
+
+    What should you do?
+
+
+    1.
+    Go into room 1
+
+    2. Go into room 2
+
+    3. Go into room 3'
+  NextPossibleStates:
+  - {fileID: 11400000, guid: 37e268bd52c1548429be6e47ab34ac3e, type: 2}
+  - {fileID: 11400000, guid: af38044e2bedac447be2c97b137c42c7, type: 2}
+  - {fileID: 11400000, guid: 02a2d192e0987a046ada8694ec09dbad, type: 2}
