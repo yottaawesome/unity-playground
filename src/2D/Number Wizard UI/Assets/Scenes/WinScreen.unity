@@ -263,7 +263,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a22b785950be64f4c9bb6517f472cb0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cae8f65b71b273c458a55a38879d5f39, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 676397563}
   - component: {fileID: 676397562}
   m_Layer: 5
-  m_Name: Start Text
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: Play Again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfe47ff3b1261f24c9a57639bb873f3e, type: 2}
   m_sharedMaterial: {fileID: -3599771952330352046, guid: dfe47ff3b1261f24c9a57639bb873f3e, type: 2}
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 1387168940}
   - component: {fileID: 1387168939}
   m_Layer: 5
-  m_Name: Start Button
+  m_Name: Play Again Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -511.7517, y: 7.5002}
+  m_AnchoredPosition: {x: -402.13464, y: 7.5002}
   m_SizeDelta: {x: 600, y: 209.253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387168939
