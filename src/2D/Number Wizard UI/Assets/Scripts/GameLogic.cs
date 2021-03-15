@@ -4,14 +4,16 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField]
-    public uint MinNumber = 1;
+    private uint MinNumber = 1;
     [SerializeField]
-    public uint MaxNumber = 1000;
+    private uint MaxNumber = 1000;
+    [SerializeField]
+    private TextMeshProUGUI label;
 
     private uint CurrentMin;
     private uint CurrentMax;
     private uint CurrentGuess;
-    private TextMeshProUGUI label;
+    
 
     void Start() 
     {
@@ -19,8 +21,6 @@ public class GameLogic : MonoBehaviour
         MaxNumber = 1000;
         CurrentMin = MinNumber;
         CurrentMax = MaxNumber + 1;
-        CurrentGuess = (MinNumber + MaxNumber) / 2;
-        label = GameObject.Find("Guess Label").GetComponent<TextMeshProUGUI>();
         
         UpdateGuess();
     }
