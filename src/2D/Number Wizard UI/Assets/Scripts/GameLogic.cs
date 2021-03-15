@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
-    private static uint MinNumber = 1;
-    private static uint MaxNumber = 1000;
+    [SerializeField]
+    public uint MinNumber = 1;
+    [SerializeField]
+    public uint MaxNumber = 1000;
 
-    private static uint CurrentMin = MinNumber;
-    private static uint CurrentMax = MaxNumber + 1;
-    private static uint CurrentGuess = (MinNumber + MaxNumber) / 2;
+    private uint CurrentMin;
+    private uint CurrentMax;
+    private uint CurrentGuess;
     private TextMeshProUGUI label;
 
     void Start() 
