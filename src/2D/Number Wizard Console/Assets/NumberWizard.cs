@@ -37,7 +37,7 @@ public class NumberWizard : MonoBehaviour
         Debug.Log("Controls: up = higher, down = lower, enter = correct");
         Debug.Log("Ok, let's play! Pick a number and I'll try to guess it...");
         State = GameState.Running;
-        CurrentMax = MaxNumber;
+        CurrentMax = MaxNumber+1;
         CurrentMin = MinNumber;
         UpdateGuess();
     }
