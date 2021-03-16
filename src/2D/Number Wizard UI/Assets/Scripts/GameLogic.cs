@@ -4,19 +4,20 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField]
-    private uint MinNumber = 1;
+    private int MinNumber = 1;
     [SerializeField]
-    private uint MaxNumber = 1000;
+    private int MaxNumber = 1000;
     [SerializeField]
     private TextMeshProUGUI label;
 
-    private uint CurrentMin;
-    private uint CurrentMax;
-    private uint CurrentGuess;
-    
+    private int CurrentMin;
+    private int CurrentMax;
+    private int CurrentGuess;
+    private System.Random rand;
 
     void Start() 
     {
+        rand = new System.Random();
         MinNumber = 1;
         MaxNumber = 1000;
         CurrentMin = MinNumber;
@@ -29,19 +30,23 @@ public class GameLogic : MonoBehaviour
 
     public void Higher()
     {
-        CurrentMin = CurrentGuess;
+        CurrentMin = CurrentGuess == MaxNumber
+            ? MaxNumber
+            : CurrentGuess + 1;
         UpdateGuess();
     }
 
     public void Lower()
     {
-        CurrentMax = CurrentGuess;
+        CurrentMax = CurrentGuess > 0
+            ? CurrentGuess - 1
+            : CurrentGuess;
         UpdateGuess();
     }
 
     void UpdateGuess()
     {
-        CurrentGuess = (CurrentMax + CurrentMin) / 2;
+        CurrentGuess = rand.Next(CurrentMin, CurrentMax);
         label.SetText(CurrentGuess.ToString());
     }
 }
