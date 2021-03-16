@@ -30,22 +30,30 @@ public class GameLogic : MonoBehaviour
 
     public void Higher()
     {
-        CurrentMin = CurrentGuess == MaxNumber
-            ? MaxNumber
-            : CurrentGuess + 1;
-        UpdateGuess();
+        if(CurrentMax != CurrentMin)
+        {
+            CurrentMin = CurrentGuess == MaxNumber
+                ? MaxNumber
+                : CurrentGuess + 1;
+            UpdateGuess();
+        }
     }
 
     public void Lower()
     {
-        CurrentMax = CurrentGuess > 0
-            ? CurrentGuess - 1
-            : CurrentGuess;
-        UpdateGuess();
+        if (CurrentMax != CurrentMin)
+        {
+            CurrentMax = CurrentGuess == MinNumber
+                ? MinNumber
+                : CurrentGuess - 1;
+            UpdateGuess();
+        }
     }
 
     void UpdateGuess()
     {
+        if (CurrentMin > CurrentMax)
+            CurrentMax = CurrentMin;
         CurrentGuess = rand.Next(CurrentMin, CurrentMax);
         label.SetText(CurrentGuess.ToString());
     }
