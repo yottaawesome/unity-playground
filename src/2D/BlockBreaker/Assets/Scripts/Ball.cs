@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField]
+    float LaunchForce = 600f;
+
     Paddle paddle;
     Rigidbody2D rigidBody;
     bool attached = true;
@@ -11,24 +12,28 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rigidBody = GetComponent<Rigidbody2D>();
+        // Attach the ball to the paddle so it tracks it initially
         paddle = FindObjectOfType<Paddle>();
         transform.SetParent(paddle.transform);
-        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if (attached && Input.GetMouseButtonUp(0))
         {
-            if(attached)
-            {
-                transform.SetParent(null);
-                rigidBody.AddForce(transform.up * 600f);
-                attached = false;
-            }
+            int leftOrRight = new System.Random().Next(0, 2) == 1
+                ? 1
+                : -1;
+            transform.SetParent(null);
+            rigidBody.AddForce(
+                new Vector2(
+                    leftOrRight * 40f, 
+                    transform.up.y * LaunchForce
+                )
+            );
+            attached = false;
         }
-
-        //gameObject.transform.position = paddle.transform.position + new Vector3(0, 1f);
     }
 }
