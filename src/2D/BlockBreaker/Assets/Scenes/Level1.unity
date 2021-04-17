@@ -1786,8 +1786,8 @@ GameObject:
   m_Component:
   - component: {fileID: 788018575}
   - component: {fileID: 788018574}
-  - component: {fileID: 788018576}
   - component: {fileID: 788018577}
+  - component: {fileID: 788018576}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -1861,8 +1861,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &788018576
-BoxCollider2D:
+--- !u!60 &788018576
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1884,9 +1884,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 0.5}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5, y: 0.25}
+      - {x: -0.5, y: 0.25}
+      - {x: -1, y: 0.042538226}
+      - {x: -1, y: -0.25}
+      - {x: 1, y: -0.25}
+      - {x: 1, y: 0.038944006}
+      - {x: 0.7760525, y: 0.13777328}
 --- !u!114 &788018577
 MonoBehaviour:
   m_ObjectHideFlags: 0
