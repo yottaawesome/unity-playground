@@ -3,7 +3,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField]
-    float LaunchForce = 600f;
+    float LaunchForce = 800f;
 
     Paddle paddle;
     Rigidbody2D rigidBody;
