@@ -138,11 +138,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LaunchForce: 600
   ballSounds:
-  - {fileID: 8300000, guid: c26e70620d44ad8499c6b9c4f27af552, type: 3}
   - {fileID: 8300000, guid: 83841bca27baa8f47900e52622eb6780, type: 3}
   - {fileID: 8300000, guid: 8a6ab37b388c8a946a89f1ad9d5133f9, type: 3}
   - {fileID: 8300000, guid: 63536634edd91a7418713755903bf0fb, type: 3}
   - {fileID: 8300000, guid: 09c45b90f935a004197c853ae55447ff, type: 3}
+  SideForce: 40
 --- !u!82 &4052088686098839725
 AudioSource:
   m_ObjectHideFlags: 0

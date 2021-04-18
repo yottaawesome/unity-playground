@@ -123,3 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ac2fe118c68944bf7da369393a94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySounds:
+  - {fileID: 8300000, guid: c26e70620d44ad8499c6b9c4f27af552, type: 3}

@@ -42,6 +42,9 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // We can use collision.gameObject.name != "Block" to disable
+        // this ball's sounds when hitting a block to avoid double
+        // playing sounds
         if (ballSounds.Length > 0)
             audioPlayer.PlayOneShot(ballSounds[Random.Range(0, ballSounds.Length)]);
     }
