@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6972193786515663014}
   m_Layer: 0
   m_Name: GameStatus
-  m_TagString: Untagged
+  m_TagString: GameStatus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 1
+  pointsPerBlockDestroyed: 1

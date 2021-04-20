@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Level
   - SceneLoader
+  - GameStatus
   layers:
   - Default
   - TransparentFX
