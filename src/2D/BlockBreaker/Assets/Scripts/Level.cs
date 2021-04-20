@@ -11,7 +11,9 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneLoader = GameObject.FindWithTag("SceneLoader").GetComponent<SceneLoader>();
+        sceneLoader = GameObject
+            .FindWithTag("SceneLoader")
+            .GetComponent<SceneLoader>();
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class Level : MonoBehaviour
     {
         currentBlockCount--;
         Debug.Log($"Current block count is {currentBlockCount}");
-        if(currentBlockCount == 0)
+        if (currentBlockCount == 0)
         {
             sceneLoader.LoadNextScene();
         }
