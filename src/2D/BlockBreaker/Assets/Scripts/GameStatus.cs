@@ -19,6 +19,7 @@ public class GameStatus : MonoBehaviour
         scoreText = GameObject
             .FindGameObjectWithTag("ScoreText")
             .GetComponent<TMPro.TextMeshProUGUI>();
+        scoreText.text = currentScore.ToString();
     }
 
     // Update is called once per frame
