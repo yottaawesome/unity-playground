@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GameStatus : MonoBehaviour
 {
@@ -10,9 +11,15 @@ public class GameStatus : MonoBehaviour
     int pointsPerBlockDestroyed = 1;
 
     int currentScore = 0;
+    TMPro.TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
-    void Start() { }
+    void Start() 
+    {
+        scoreText = GameObject
+            .FindGameObjectWithTag("ScoreText")
+            .GetComponent<TMPro.TextMeshProUGUI>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,5 +30,6 @@ public class GameStatus : MonoBehaviour
     public void AddToScore()
     {
         currentScore += pointsPerBlockDestroyed;
+        scoreText.text = currentScore.ToString();
     }
 }
