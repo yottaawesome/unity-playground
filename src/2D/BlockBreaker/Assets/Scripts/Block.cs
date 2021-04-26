@@ -6,6 +6,9 @@ public class Block : MonoBehaviour
     [SerializeField] 
     AudioClip[] destroySounds;
 
+    [SerializeField]
+    GameObject destroyParticleEffect;
+
     // State
     Level level;
     GameStatus gameStatus;
@@ -29,6 +32,15 @@ public class Block : MonoBehaviour
 
     public void DestroyBlock()
     {
+        PlayDestroySound();
+        CreateParticleEffect();
+        level.RemoveBlock();
+        gameStatus.AddToScore();
+        Destroy(gameObject);
+    }
+
+    private void PlayDestroySound()
+    {
         if (destroySounds.Length > 0)
         {
             AudioSource.PlayClipAtPoint(
@@ -36,9 +48,19 @@ public class Block : MonoBehaviour
                 Camera.current.transform.position
             );
         }
-
-        level.RemoveBlock();
-        gameStatus.AddToScore();
-        Destroy(gameObject);
+    }
+    
+    private void CreateParticleEffect()
+    {
+        if (destroyParticleEffect != null)
+        {
+            GameObject particleVfx = Instantiate(
+                destroyParticleEffect,
+                transform.position,
+                Quaternion.identity,
+                null
+            );
+            Destroy(particleVfx, 2);
+        }
     }
 }
