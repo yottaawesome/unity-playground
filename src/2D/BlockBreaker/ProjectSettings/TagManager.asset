@@ -9,6 +9,8 @@ TagManager:
   - GameStatus
   - GameCanvas
   - ScoreText
+  - Breakable
+  - Unbreakable
   layers:
   - Default
   - TransparentFX

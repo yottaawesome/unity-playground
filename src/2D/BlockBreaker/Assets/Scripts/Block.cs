@@ -16,17 +16,19 @@ public class Block : MonoBehaviour
     #region Lifecycle
     void Start()
     {
+        gameStatus = GameObject.FindWithTag("GameStatus").GetComponent<GameStatus>();
         // https://docs.unity3d.com/2021.1/Documentation/ScriptReference/GameObject.Find.html
         level = GameObject.FindWithTag("Level").GetComponent<Level>();
-        level.AddBlock();
-        gameStatus = GameObject.FindWithTag("GameStatus").GetComponent<GameStatus>();
+        if (tag == "Breakable")
+            level.AddBlock();
     }
     #endregion
 
     #region Events
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DestroyBlock();
+        if (tag == "Breakable")
+            DestroyBlock();
     }
     #endregion
 
