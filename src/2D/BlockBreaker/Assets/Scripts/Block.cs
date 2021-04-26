@@ -9,9 +9,13 @@ public class Block : MonoBehaviour
     [SerializeField]
     GameObject destroyParticleEffect;
 
+    [SerializeField]
+    uint maxHits = 1;
+
     // State
     Level level;
     GameStatus gameStatus;
+    uint currentHits = 0;
 
     #region Lifecycle
     void Start()
@@ -28,7 +32,11 @@ public class Block : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (tag == "Breakable")
-            DestroyBlock();
+        {
+            currentHits++;
+            if (currentHits >= maxHits)
+                DestroyBlock();
+        }
     }
     #endregion
 
