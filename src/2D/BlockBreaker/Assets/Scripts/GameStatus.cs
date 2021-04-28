@@ -7,9 +7,6 @@ public class GameStatus : MonoBehaviour
     [Range(0.1f, 10f)] 
     float gameSpeed = 1f;
 
-    [SerializeField]
-    int pointsPerBlockDestroyed = 1;
-
     int currentScore = 0;
     TMPro.TextMeshProUGUI scoreText;
 
@@ -49,9 +46,9 @@ public class GameStatus : MonoBehaviour
         Time.timeScale = gameSpeed;
     }
 
-    public void AddToScore()
+    public void AddToScore(int points)
     {
-        currentScore += pointsPerBlockDestroyed;
+        currentScore += points;
         scoreText.text = currentScore.ToString();
     }
 
