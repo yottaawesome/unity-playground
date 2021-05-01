@@ -3,9 +3,10 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     // Config
-    [SerializeField] float LaunchForce = 800f;
+    [SerializeField] float launchForce = 800f;
     [SerializeField] AudioClip[] ballSounds;
-    [SerializeField] float SideForce = 40f;
+    [SerializeField] float sideForce = 40f;
+    [SerializeField] float randomFactor = 5f;
 
     // State
     Paddle paddle;
@@ -28,20 +29,32 @@ public class Ball : MonoBehaviour
     {
         if (attached && Input.GetMouseButtonUp(0))
         {
-            int leftOrRight = -1 + Random.Range(0, 2) * 2;
-            transform.SetParent(null);
-            rigidBody.AddForce(
-                new Vector2(
-                    leftOrRight * SideForce, 
-                    transform.up.y * LaunchForce
-                )
-            );
-            attached = false;
+            InitialLaunch();
         }
+    }
+
+    void InitialLaunch()
+    {
+        int leftOrRight = -1 + Random.Range(0, 2) * 2;
+        transform.SetParent(null);
+        rigidBody.AddForce(
+            new Vector2(
+                leftOrRight * sideForce,
+                transform.up.y * launchForce
+            )
+        );
+        attached = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        var tweak = new Vector2(
+            Random.Range(0, randomFactor), 
+            Random.Range(0, randomFactor)
+        );
+        rigidBody.AddForce(tweak);
+        Debug.Log("Adding force " + tweak.ToString());
+
         // We can use collision.gameObject.name != "Block" to disable
         // this ball's sounds when hitting a block to avoid double
         // playing sounds

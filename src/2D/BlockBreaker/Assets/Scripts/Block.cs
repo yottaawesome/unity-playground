@@ -49,7 +49,7 @@ public class Block : MonoBehaviour
         {
             DestroyBlock();
         }
-        else
+        else if (hitSprites.Length > 0)
         {
             // this assumes the sprite order is from least to most
             // damaged
