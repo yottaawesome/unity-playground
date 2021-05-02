@@ -7,6 +7,9 @@ public class GameStatus : MonoBehaviour
     [Range(0.1f, 10f)] 
     float gameSpeed = 1f;
 
+    [SerializeField]
+    bool isAutoplayEnabled = false;
+
     int currentScore = 0;
     TMPro.TextMeshProUGUI scoreText;
 
@@ -55,5 +58,10 @@ public class GameStatus : MonoBehaviour
     public void ResetGameSession()
     {
         Destroy(gameObject);
+    }
+
+    public bool IsAutoplayEnabled()
+    {
+        return isAutoplayEnabled;
     }
 }
