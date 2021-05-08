@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Config
     [SerializeField]
     float HorizontalSpeed = 10f;
 
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     GameObject bullet;
 
+    // State
     float xMin;
     float xMax;
     float yMin;
@@ -63,11 +65,11 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(
                 bullet,
-                transform.position + new Vector3(0, 1f, 0),
+                transform.position + new Vector3(0, spriteRenderer.sprite.bounds.extents.y, 0),
                 Quaternion.identity
             );
         }
