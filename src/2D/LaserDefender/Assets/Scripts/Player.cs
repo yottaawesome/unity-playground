@@ -4,8 +4,12 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     float HorizontalSpeed = 10f;
+
     [SerializeField]
     float VerticalSpeed = 10f;
+
+    [SerializeField]
+    GameObject bullet;
 
     float xMin;
     float xMax;
@@ -24,6 +28,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        Shoot();
     }
 
     private void SetupMoveBoundaries()
@@ -54,5 +59,17 @@ public class Player : MonoBehaviour
         float newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
 
         transform.position = new Vector3(newXPos, newYPos, transform.position.z);
+    }
+
+    private void Shoot()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Instantiate(
+                bullet,
+                transform.position + new Vector3(0, 1f, 0),
+                Quaternion.identity
+            );
+        }
     }
 }
