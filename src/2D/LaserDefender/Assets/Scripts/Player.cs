@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,12 +13,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     GameObject bullet;
 
+    [SerializeField]
+    float projectileFiringPeriod = 0.1f;
+
     // State
     float xMin;
     float xMax;
     float yMin;
     float yMax;
     SpriteRenderer spriteRenderer;
+    Coroutine coContinuousFire = null;
 
     // Start is called before the first frame update
     void Start()
@@ -67,11 +72,24 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            coContinuousFire = StartCoroutine(FireContinuously());
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(coContinuousFire);
+        }
+    }
+
+    IEnumerator FireContinuously()
+    {
+        while (true)
+        {
             Instantiate(
                 bullet,
                 transform.position + new Vector3(0, spriteRenderer.sprite.bounds.extents.y, 0),
                 Quaternion.identity
             );
+            yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
 }
