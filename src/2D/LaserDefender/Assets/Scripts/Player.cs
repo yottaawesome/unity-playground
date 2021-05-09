@@ -70,13 +70,14 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && coContinuousFire == null)
         {
             coContinuousFire = StartCoroutine(FireContinuously());
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1") && coContinuousFire != null)
         {
             StopCoroutine(coContinuousFire);
+            coContinuousFire = null;
         }
     }
 
