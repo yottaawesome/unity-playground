@@ -15,11 +15,16 @@ public class PlayerBullet : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = new Vector3(0, verticalSpeed, 0);
-        Destroy(gameObject, timeToLiveSeconds);
     }
 
     void Update()
     {
         //transform.position += new Vector3(0, Time.deltaTime * verticalSpeed, 0);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "LaserShredder")
+            Destroy(gameObject, 0);
     }
 }
