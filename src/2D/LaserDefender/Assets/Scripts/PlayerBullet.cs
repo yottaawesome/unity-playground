@@ -6,9 +6,6 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField]
     float verticalSpeed = 5f;
 
-    [SerializeField]
-    float timeToLiveSeconds = 5;
-
     Rigidbody2D rigidBody;
 
     void Start()
