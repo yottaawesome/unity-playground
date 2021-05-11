@@ -418,6 +418,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[2]
       value: 
       objectReference: {fileID: 2475458428234389509}
+    - target: {fileID: 2383784880116624456, guid: af356a334ca04664a888e03978f770a4, type: 3}
+      propertyPath: useWaypointFirstPosition
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af356a334ca04664a888e03978f770a4, type: 3}
 --- !u!1001 &2475458428234389508
