@@ -28,10 +28,10 @@ public class WaveConfig : ScriptableObject
     {
         var list = new List<Transform>();
 
+        // All children of the path (the way points) are included
+        // in the transform enumerable
         foreach(Transform child in pathPrefab.transform)
-        {
             list.Add(child);
-        }
 
         return list; 
     }

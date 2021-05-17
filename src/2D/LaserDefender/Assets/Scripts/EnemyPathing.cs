@@ -8,13 +8,13 @@ public class EnemyPathing : MonoBehaviour
     WaveConfig waveConfig;
 
     [SerializeField]
-    List<Transform> waypoints;
-
-    [SerializeField]
     float moveSpeed = 2f;
 
     [SerializeField]
     bool useWaypointFirstPosition = true;
+
+    List<Transform> waypoints;
+
 
     int waypointIndex = 0;
 
