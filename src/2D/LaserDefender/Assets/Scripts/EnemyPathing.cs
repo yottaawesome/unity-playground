@@ -5,17 +5,10 @@ using UnityEngine;
 public class EnemyPathing : MonoBehaviour
 {
     [SerializeField]
-    WaveConfig waveConfig;
-
-    [SerializeField]
-    float moveSpeed = 2f;
-
-    [SerializeField]
     bool useWaypointFirstPosition = true;
 
     List<Transform> waypoints;
-
-
+    WaveConfig waveConfig;
     int waypointIndex = 0;
 
     // Start is called before the first frame update
@@ -33,14 +26,20 @@ public class EnemyPathing : MonoBehaviour
         MoveTowardWaypoint();
     }
 
-    void MoveTowardWaypoint()
+    public void SetWaveConfig(WaveConfig newConfig)
+    {
+        waveConfig = newConfig;
+    }
+
+    private void MoveTowardWaypoint()
     {
         if (waypoints.Count == 0)
             return;
 
         // Move towards the current waypoint
         Vector3 tagetPosition = waypoints[waypointIndex].position;
-        float movementThisFrame = moveSpeed * Time.deltaTime;
+        
+        float movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, tagetPosition, movementThisFrame);
 
         // If we've reached the waypoint position, increment the index
