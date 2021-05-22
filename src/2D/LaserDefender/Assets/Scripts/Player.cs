@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     float projectileFiringPeriod = 0.1f;
 
+    [SerializeField]
+    int health = 100;
+
     // State
     float xMin;
     float xMax;
@@ -92,5 +95,24 @@ public class Player : MonoBehaviour
             );
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag != "EnemyProjectile")
+            return;
+
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (damageDealer == null)
+            return;
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        damageDealer.Hit();
+        health -= damageDealer.GetDamage();
+        if (health <= 0)
+            Destroy(gameObject);
     }
 }
