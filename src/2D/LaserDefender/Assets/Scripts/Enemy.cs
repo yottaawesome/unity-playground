@@ -7,12 +7,55 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float health = 100;
 
-    void Start() { }
+    [SerializeField]
+    float shotCounter;
 
-    void Update() { }
+    [SerializeField]
+    float minTimeBetweenShots = 0.2f;
+    
+    [SerializeField]
+    float maxTimeBetweenShots = 3f;
+
+    [SerializeField]
+    GameObject enemyBullet;
+
+    SpriteRenderer spriteRenderer;
+
+    void Start() 
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+    }
+
+    void Update() 
+    {
+        CountdownAndShoot();
+    }
+
+    private void CountdownAndShoot()
+    {
+        shotCounter -= Time.deltaTime;
+        if(shotCounter <= 0f)
+        {
+            Fire();
+            shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        }
+    }
+
+    private void Fire()
+    {
+        Instantiate(
+            enemyBullet,
+            transform.position - new Vector3(0, spriteRenderer.sprite.bounds.extents.y, 0),
+            Quaternion.identity
+        );
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag != "PlayerProjectile")
+            return;
+
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (damageDealer == null)
             return;
