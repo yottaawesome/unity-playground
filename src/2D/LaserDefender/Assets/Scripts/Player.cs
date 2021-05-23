@@ -4,20 +4,19 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Config
+    [Header("Attributes")]
     [SerializeField]
-    float HorizontalSpeed = 10f;
-
-    [SerializeField]
-    float VerticalSpeed = 10f;
-
-    [SerializeField]
-    GameObject bullet;
-
-    [SerializeField]
-    float projectileFiringPeriod = 0.1f;
-
+    float horizontalSpeed = 10f;
     [SerializeField]
     int health = 100;
+    [SerializeField]
+    float verticalSpeed = 10f;
+
+    [Header("Attacks")]
+    [SerializeField]
+    GameObject bullet;
+    [SerializeField]
+    float projectileFiringPeriod = 0.1f;
 
     // State
     float xMin;
@@ -62,8 +61,8 @@ public class Player : MonoBehaviour
         // Edit > Project Settings > Input Manager > Axes
         // This makes it frame-rate independent
         // https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
-        float deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * HorizontalSpeed;
-        float deltaY = Input.GetAxis("Vertical") * Time.deltaTime * VerticalSpeed;
+        float deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * horizontalSpeed;
+        float deltaY = Input.GetAxis("Vertical") * Time.deltaTime * verticalSpeed;
 
         float newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         float newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
