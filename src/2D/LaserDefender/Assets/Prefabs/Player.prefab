@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1488318624529162578}
   - component: {fileID: 1488318624529162577}
   - component: {fileID: 146818068966403255}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e1f9bf1815c75498e2fe9bb20648c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalSpeed: 10
-  VerticalSpeed: 10
+  horizontalSpeed: 10
+  health: 100
+  verticalSpeed: 10
   bullet: {fileID: 0}
   projectileFiringPeriod: 0.1
 --- !u!60 &146818068966403255
