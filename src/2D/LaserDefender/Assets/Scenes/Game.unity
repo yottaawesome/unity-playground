@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4281864798883317227, guid: 0e3a723576169bd4e95bc1ad3526e601, type: 3}
       propertyPath: m_Name
-      value: LaserShredder (1)
+      value: BottomLaserShredder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e3a723576169bd4e95bc1ad3526e601, type: 3}
@@ -640,7 +640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4281864798883317227, guid: 0e3a723576169bd4e95bc1ad3526e601, type: 3}
       propertyPath: m_Name
-      value: LaserShredder
+      value: TopLaserShredder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e3a723576169bd4e95bc1ad3526e601, type: 3}
