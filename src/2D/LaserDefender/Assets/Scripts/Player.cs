@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
     // Config
     [Header("Attributes")]
     [SerializeField]
@@ -17,6 +18,13 @@ public class Player : MonoBehaviour
     GameObject bullet;
     [SerializeField]
     float projectileFiringPeriod = 0.1f;
+
+    [Header("Effects")]
+    [SerializeField]
+    GameObject explosion;
+
+    // Constants
+    private const int explosionTimeout = 1;
 
     // State
     float xMin;
@@ -111,6 +119,14 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         health -= damageDealer.GetDamage();
         if (health <= 0)
+        {
             Destroy(gameObject);
+            GameObject explosionVfx = Instantiate(
+                explosion,
+                transform.position,
+                Quaternion.identity
+            );
+            Destroy(explosionVfx, explosionTimeout);
+        }
     }
 }

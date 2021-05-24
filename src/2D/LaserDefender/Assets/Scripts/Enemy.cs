@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    // Config
     [SerializeField]
     float health = 100;
 
@@ -19,6 +20,13 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     GameObject enemyBullet;
 
+    [SerializeField]
+    GameObject explosion;
+
+    // Constants
+    private const int explosionTimeout = 1;
+
+    // State
     SpriteRenderer spriteRenderer;
 
     void Start() 
@@ -65,6 +73,14 @@ public class Enemy : MonoBehaviour
         damageDealer.Hit();
         health -= damageDealer.GetDamage();
         if (health <= 0)
+        {
             Destroy(gameObject);
+            GameObject explosionVfx = Instantiate(
+                explosion,
+                transform.position,
+                Quaternion.identity
+            );
+            Destroy(explosionVfx, explosionTimeout);
+        }
     }
 }

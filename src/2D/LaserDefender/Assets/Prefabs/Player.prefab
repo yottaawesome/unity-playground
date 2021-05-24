@@ -102,6 +102,7 @@ MonoBehaviour:
   verticalSpeed: 10
   bullet: {fileID: 0}
   projectileFiringPeriod: 0.1
+  explosion: {fileID: 5202662505979939212, guid: 4ab996cb914788341a6a3b3788a8714b, type: 3}
 --- !u!60 &146818068966403255
 PolygonCollider2D:
   m_ObjectHideFlags: 0

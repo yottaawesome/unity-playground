@@ -118,6 +118,7 @@ MonoBehaviour:
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
   enemyBullet: {fileID: 3578022705652441856, guid: 8698307997868f24fbfa65c0d9b8c704, type: 3}
+  explosion: {fileID: 5202662505979939212, guid: 4ab996cb914788341a6a3b3788a8714b, type: 3}
 --- !u!61 &-150780940311799384
 BoxCollider2D:
   m_ObjectHideFlags: 0
