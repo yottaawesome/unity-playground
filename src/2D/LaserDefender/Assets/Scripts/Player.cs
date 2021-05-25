@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     AudioClip[] fireSounds;
     [SerializeField]
     [Range(0, 1)]
-    float fireSoundsVolume = 0.15f;
+    float fireSoundsVolume = 0.05f;
 
     // Constants
     private const int explosionTimeout = 1;
