@@ -119,6 +119,14 @@ MonoBehaviour:
   maxTimeBetweenShots: 3
   enemyBullet: {fileID: 3578022705652441856, guid: 8698307997868f24fbfa65c0d9b8c704, type: 3}
   explosion: {fileID: 5202662505979939212, guid: 4ab996cb914788341a6a3b3788a8714b, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 93aff301e81c89444b428a6297d69dbf, type: 3}
+  fireSounds:
+  - {fileID: 8300000, guid: e2a2beb2d5d4b3249b169647148b1c1b, type: 3}
+  - {fileID: 8300000, guid: 81e465d988c612741a45dbc8965a47c4, type: 3}
+  - {fileID: 8300000, guid: 14aed2798e1665a4691d7eac4bdfa0cb, type: 3}
+  - {fileID: 8300000, guid: ea9b43f06abc56f4f80f285858430b4c, type: 3}
+  - {fileID: 8300000, guid: cdfec8b75e4440c4586df52bcacd3bb0, type: 3}
 --- !u!61 &-150780940311799384
 BoxCollider2D:
   m_ObjectHideFlags: 0

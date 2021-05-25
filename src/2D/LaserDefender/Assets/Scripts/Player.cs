@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
     // Config
     [Header("Attributes")]
     [SerializeField]
@@ -22,6 +21,18 @@ public class Player : MonoBehaviour
     [Header("Effects")]
     [SerializeField]
     GameObject explosion;
+
+    [SerializeField]
+    AudioClip[] deathSounds;
+    [SerializeField]
+    [Range(0, 1)]
+    float deathSoundVolume = 0.75f;
+
+    [SerializeField]
+    AudioClip[] fireSounds;
+    [SerializeField]
+    [Range(0, 1)]
+    float fireSoundsVolume = 0.15f;
 
     // Constants
     private const int explosionTimeout = 1;
@@ -100,15 +111,16 @@ public class Player : MonoBehaviour
                 transform.position + new Vector3(0, spriteRenderer.sprite.bounds.extents.y, 0),
                 Quaternion.identity
             );
+            AudioHelper.PlayRandomSoundAtCamera(fireSounds, fireSoundsVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hello");
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         ProcessHit(damageDealer);
+        ProcessDeath();
     }
 
     private void ProcessHit(DamageDealer damageDealer)
@@ -118,15 +130,20 @@ public class Player : MonoBehaviour
 
         damageDealer.Hit();
         health -= damageDealer.GetDamage();
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-            GameObject explosionVfx = Instantiate(
-                explosion,
-                transform.position,
-                Quaternion.identity
-            );
-            Destroy(explosionVfx, explosionTimeout);
-        }
+    }
+
+    private void ProcessDeath()
+    {
+        if (health > 0)
+            return;
+
+        AudioHelper.PlayRandomSoundAtCamera(deathSounds, deathSoundVolume);
+        GameObject explosionVfx = Instantiate(
+            explosion,
+            transform.position,
+            Quaternion.identity
+        );
+        Destroy(explosionVfx, explosionTimeout);
+        Destroy(gameObject);
     }
 }

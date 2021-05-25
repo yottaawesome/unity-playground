@@ -23,6 +23,18 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     GameObject explosion;
 
+    [SerializeField]
+    AudioClip[] deathSounds;
+    [SerializeField]
+    [Range(0, 1)]
+    float deathSoundVolume = 0.75f;
+
+    [SerializeField]
+    AudioClip[] fireSounds;
+    [SerializeField]
+    [Range(0, 1)]
+    float fireSoundsVolume = 0.75f;
+
     // Constants
     private const int explosionTimeout = 1;
 
@@ -57,12 +69,14 @@ public class Enemy : MonoBehaviour
             transform.position - new Vector3(0, spriteRenderer.sprite.bounds.extents.y, 0),
             Quaternion.identity
         );
+        AudioHelper.PlayRandomSoundAtCamera(fireSounds, fireSoundsVolume);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         ProcessHit(damageDealer);
+        ProcessDeath();
     }
 
     private void ProcessHit(DamageDealer damageDealer)
@@ -72,15 +86,20 @@ public class Enemy : MonoBehaviour
 
         damageDealer.Hit();
         health -= damageDealer.GetDamage();
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-            GameObject explosionVfx = Instantiate(
-                explosion,
-                transform.position,
-                Quaternion.identity
-            );
-            Destroy(explosionVfx, explosionTimeout);
-        }
+    }
+
+    private void ProcessDeath()
+    {
+        if (health > 0)
+            return;
+        
+        AudioHelper.PlayRandomSoundAtCamera(deathSounds, deathSoundVolume);
+        GameObject explosionVfx = Instantiate(
+            explosion,
+            transform.position,
+            Quaternion.identity
+        );
+        Destroy(explosionVfx, explosionTimeout);
+        Destroy(gameObject);
     }
 }

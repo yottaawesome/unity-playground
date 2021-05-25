@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488318624529162588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,6 +103,12 @@ MonoBehaviour:
   bullet: {fileID: 0}
   projectileFiringPeriod: 0.1
   explosion: {fileID: 5202662505979939212, guid: 4ab996cb914788341a6a3b3788a8714b, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 93aff301e81c89444b428a6297d69dbf, type: 3}
+  deathSoundVolume: 0.75
+  fireSounds:
+  - {fileID: 8300000, guid: 5949e5be0e181e04fac408925c9d522f, type: 3}
+  fireSoundsVolume: 0.05
 --- !u!60 &146818068966403255
 PolygonCollider2D:
   m_ObjectHideFlags: 0
