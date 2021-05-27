@@ -45,11 +45,15 @@ public class Player : MonoBehaviour
     float yMax;
     SpriteRenderer spriteRenderer;
     Coroutine coContinuousFire = null;
+    GameStatus gameStatus;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        gameStatus = GameObject
+            .FindGameObjectWithTag("GameStatus")
+            .GetComponent<GameStatus>();
         SetupMoveBoundaries();
     }
 
@@ -151,5 +155,6 @@ public class Player : MonoBehaviour
         );
         Destroy(explosionVfx, explosionTimeout);
         Destroy(gameObject);
+        gameStatus.PlayerDied();
     }
 }

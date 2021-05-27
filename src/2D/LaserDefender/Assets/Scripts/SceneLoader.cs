@@ -34,6 +34,6 @@ public class SceneLoader : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings-1);
     }
 }

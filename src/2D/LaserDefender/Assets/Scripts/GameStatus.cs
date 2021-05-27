@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System;
+using System.Collections;
 
 public class GameStatus : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class GameStatus : MonoBehaviour
     TMPro.TextMeshProUGUI scoreText;
     TMPro.TextMeshProUGUI healthText;
     Player player;
+    SceneLoader sceneLoader;
 
     // This is a singleton pattern. Note the canvas has been made
     // a child of this object to also make it a singleton. This
@@ -36,6 +39,7 @@ public class GameStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Hello");
         scoreText = GameObject
             .FindGameObjectWithTag("ScoreText")
             .GetComponent<TMPro.TextMeshProUGUI>();
@@ -47,7 +51,11 @@ public class GameStatus : MonoBehaviour
 
         player = GameObject
             .FindGameObjectWithTag("Player")
-            .GetComponent<Player>();
+            ?.GetComponent<Player>();
+
+        sceneLoader = GameObject
+            .FindGameObjectWithTag("SceneLoader")
+            .GetComponent<SceneLoader>();
     }
 
     // Update is called once per frame
@@ -67,6 +75,17 @@ public class GameStatus : MonoBehaviour
     public void ResetGameSession()
     {
         Destroy(gameObject);
+    }
+
+    IEnumerator LoadDelayGameOver()
+    {
+        yield return new WaitForSeconds(2);
+        sceneLoader?.GameOver();
+    }
+
+    public void PlayerDied()
+    {
+        StartCoroutine(LoadDelayGameOver());
     }
 
     private void UpdateHealthText()
