@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 146818068966403255}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   horizontalSpeed: 10
   health: 100
   verticalSpeed: 10
-  bullet: {fileID: 0}
+  bullet: {fileID: 3578022705652441856, guid: 5f4c0171e30053d429058ea365a32fae, type: 3}
   projectileFiringPeriod: 0.1
   explosion: {fileID: 5202662505979939212, guid: 4ab996cb914788341a6a3b3788a8714b, type: 3}
   deathSounds:

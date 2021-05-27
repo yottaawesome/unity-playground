@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -73,6 +74,11 @@ public class Player : MonoBehaviour
         xMax -= spriteRenderer.sprite.bounds.extents.x;
         yMin += spriteRenderer.sprite.bounds.extents.y;
         yMax -= spriteRenderer.sprite.bounds.extents.y;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
     private void Move()

@@ -7,6 +7,9 @@ TagManager:
   - LaserShredder
   - PlayerProjectile
   - EnemyProjectile
+  - ScoreText
+  - HealthText
+  - GameStatus
   layers:
   - Default
   - TransparentFX

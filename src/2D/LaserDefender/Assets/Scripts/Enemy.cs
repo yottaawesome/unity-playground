@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     float maxTimeBetweenShots = 3f;
 
     [SerializeField]
+    int pointValue = 50;
+
+    [SerializeField]
     GameObject enemyBullet;
 
     [SerializeField]
@@ -41,10 +44,15 @@ public class Enemy : MonoBehaviour
     // State
     SpriteRenderer spriteRenderer;
 
+    GameStatus gameStatus;
+
     void Start() 
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        gameStatus = GameObject
+            .FindGameObjectWithTag("GameStatus")
+            .GetComponent<GameStatus>();
     }
 
     void Update() 
@@ -100,6 +108,8 @@ public class Enemy : MonoBehaviour
             Quaternion.identity
         );
         Destroy(explosionVfx, explosionTimeout);
+        gameStatus?.AddToScore(pointValue);
+
         Destroy(gameObject);
     }
 }
