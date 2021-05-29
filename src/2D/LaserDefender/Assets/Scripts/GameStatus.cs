@@ -3,7 +3,7 @@ using TMPro;
 using System;
 using System.Collections;
 
-public class GameStatus : MonoBehaviour
+public class GameStatus : Singleton<GameStatus>
 {
     [SerializeField]
     [Range(0.1f, 10f)]
@@ -14,27 +14,6 @@ public class GameStatus : MonoBehaviour
     TMPro.TextMeshProUGUI healthText;
     Player player;
     SceneLoader sceneLoader;
-
-    // This is a singleton pattern. Note the canvas has been made
-    // a child of this object to also make it a singleton. This
-    // functionality could also be implemented as a static object
-    // or static variable.
-    private void Awake()
-    {
-        if (FindObjectsOfType<GameStatus>().Length > 1)
-        {
-            // There is potential for other objects to try to use
-            // this object before it's destroyed (depending on the
-            // execution order of the scripts), so set it to
-            // inactive so it can't cause any mischief
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +40,13 @@ public class GameStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject
+                .FindGameObjectWithTag("Player")
+                ?.GetComponent<Player>();
+        }
+
         Time.timeScale = gameSpeed;
         UpdateHealthText();
         scoreText.text = currentScore.ToString();
@@ -80,6 +66,7 @@ public class GameStatus : MonoBehaviour
     IEnumerator LoadDelayGameOver()
     {
         yield return new WaitForSeconds(2);
+        player = null;
         sceneLoader?.GameOver();
     }
 
