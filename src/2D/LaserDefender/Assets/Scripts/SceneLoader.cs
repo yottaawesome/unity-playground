@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
         //    .FindGameObjectWithTag("GameStatus")
         //    ?.GetComponent<GameStatus>()
         //    .ResetGameSession();
+        GameObject.FindObjectOfType<GameStatus>()?.ResetGameSession();
         SceneManager.LoadScene(0);
     }
 
