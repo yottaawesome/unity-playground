@@ -6,6 +6,9 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField]
     float verticalSpeed = 5f;
 
+    [SerializeField]
+    float speedOfSpin = 0f;
+
     Rigidbody2D rigidBody;
 
     void Start()
@@ -17,6 +20,8 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         //transform.position += new Vector3(0, Time.deltaTime * verticalSpeed, 0);
+        if (speedOfSpin > 0)
+            transform.Rotate(0, 0, speedOfSpin * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
