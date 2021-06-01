@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1ba8e34b267a2844b939b3b00ce992f4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - a Alley Garden
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0654bcc1bae28024dbf24f1ac9a60db4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
